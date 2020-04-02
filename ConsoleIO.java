@@ -22,15 +22,15 @@ public class ConsoleIO {
         });
     }
 
-    public static String studentConfirm(String message, Scanner input) {
+    public static String studentConfirm(Scanner input,String message) {
 
-        String confirmation="";
-        System.out.printf("%s (Y/n) ", message);
+        String confirm="";
+        System.out.printf("%s (Y/N) ", message);
 
         if (input.hasNext()){
-            confirmation=input.next();
+            confirm=input.next();
         }
-        return confirmation;
+        return confirm;
     }
 
     public static HashMap<String, String> createStudent(){
@@ -56,6 +56,17 @@ public class ConsoleIO {
 
                 studentInfo(key, input, student);
 
+            }
+
+            String message = "Would you like to add another Student";
+            String confirm = studentConfirm(input, message);
+
+            if(confirm.equals("N")){
+                System.out.println("okay byeee!");
+                studentPrint(student);
+                break;
+            } else {
+                System.out.println("You don't want do do that!");
             }
 
             // ---- PRINT  ----
