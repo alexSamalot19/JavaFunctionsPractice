@@ -6,14 +6,15 @@ import java.util.ArrayList;
 
 
 public class ConsoleIO {
-    static void studentInfo(String key, Scanner input, Hashmap<String, String> student){
+
+    static void studentInfo(String key, Scanner input, HashMap<String, String> student){
         System.out.printf("Please enter the student's %s",key);
         if(input.hasNext()){
             student.put(key,input.next());
         }
     }
 
-    public static void studentPrint(){
+    public static void studentPrint(HashMap<String, String> student){
 
         student.forEach((attribute,value)->{
             System.out.println(
@@ -29,10 +30,10 @@ public class ConsoleIO {
         if (input.hasNext()){
             confirmation=input.next();
         }
-        return studentConfirm;
+        return confirmation;
     }
 
-    public void createStudent(){
+    public static HashMap<String, String> createStudent(){
         // Wrap this up into a function that returns a HashMap.
         return new HashMap<String, String>();
     }
@@ -47,7 +48,7 @@ public class ConsoleIO {
         // As long as the user wants to interact with the program...
         while (true) {
 
-            Hashmap<String, String> student = createStudent();
+            HashMap<String, String> student = createStudent();
 
             String[] keys = {"first", "last", "middle initial", "address", "email", "phone number"};
 
@@ -58,7 +59,7 @@ public class ConsoleIO {
             }
 
             // ---- PRINT  ----
-            studentPrint();
+            //studentPrint();
 /*
             String message = "Is all of this information true?";
             studentConfirm(message,input);
